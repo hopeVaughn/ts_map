@@ -5,6 +5,8 @@ I'll be using parcel to run this project. I no longer need install parcel global
 <script src="./src/index.ts"></script>
 ```
 ## Dependencies
+This project utilizes TypeScript. TypesScript is essentially the best dang linter that JavaScript ever did see. To learn more about TypeScript and it's uses please visit the official documentation [here](https://www.typescriptlang.org/docs/)
+
 This project utilizes the [faker](https://github.com/faker-js/faker) dependency from github. The previous version of faker is deprecated and no longer maintained. This version was captured to preserve it. This version of faker supports types already so there's no need to add the @type to the dependency.
 
 This project utilizes the google map api and therefore needs to have the @types/google.maps dependency. This also means that at the top of our index.ts file we need to include ``` /// <reference types="@types/google.maps" />``` 

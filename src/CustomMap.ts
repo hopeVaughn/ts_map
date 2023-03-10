@@ -2,7 +2,7 @@ import { User } from './User'
 import { Company } from './Company'
 
 // This interface is a check on the arguments given to the addMarker method in the CustomMap class. TypeScript uses an implicit check on the arguments given to check if the meet the interface requirements. The arguments are the User and Company classes passed in through the index.ts
-interface Mappable {
+export interface Mappable {
   location: {
     lat: number;
     lng: number;

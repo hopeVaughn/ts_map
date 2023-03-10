@@ -12,3 +12,7 @@ This project utilizes the [faker](https://github.com/faker-js/faker) dependency 
 This project utilizes the google map api and therefore needs to have the @types/google.maps dependency. You will also need to generate your own Google Maps API key. This can be done in the Google Developers page. This also means that at the top of our index.ts file we need to include ``` /// <reference types="@types/google.maps" />``` 
 Documentation around why that is can be found [here](https://developers.google.com/maps/documentation/javascript/using-typescript#Module_Import).
 
+## Core Concepts
+* We want to limit the amount of exposed area of our google map api. To do so we added the *private* modifier to the CustomMap class. This way when we create a new instance of CustomMap we limit the access to the numerous methods available through the google maps api. 
+
+* We used an interface to establish the contents of the arguments we passed into our map api. Both our Company and User classes we're adjusted to make sure they met the requirements. This also allowed us to minimize repeated code by setting up a dependency between CustomMap and anything being passed in as arguments.

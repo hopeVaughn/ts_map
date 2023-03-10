@@ -1,6 +1,7 @@
 import { User } from './User'
 import { Company } from './Company'
 
+// This interface is a check on the arguments given to the addMarker method in the CustomMap class. TypeScript uses an implicit check on the arguments given to check if the meet the interface requirements. The arguments are the User and Company classes passed in through the index.ts
 interface Mappable {
   location: {
     lat: number;
@@ -22,22 +23,19 @@ export class CustomMap {
   }
 
   addMarker(mappable: Mappable): void {
-    new google.maps.Marker({
+    const marker = new google.maps.Marker({
       map: this.googleMap,
       position: {
         lat: mappable.location.lat,
         lng: mappable.location.lng,
       },
+    });
+    marker.addListener('click', () => {
+      const infoWindow = new google.maps.InfoWindow({
+        content: 'Hello Hope!'
+      });
+      infoWindow.open(this.googleMap, marker)
     })
-    //
   }
-  // addCompanyMarker(company: Company): void {
-  //   new google.maps.Marker({
-  //     map: this.googleMap,
-  //     position: {
-  //       lat: company.location.lat,
-  //       lng: company.location.lng,
-  //     },
-  //   })
-  // }
+
 }
